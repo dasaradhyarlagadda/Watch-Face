@@ -32,4 +32,26 @@ object MessageSender {
                 }
             }
     }
+
+    fun sendBattery(
+        context: Context,
+        battery: Int
+    ) {
+
+        Wearable.getNodeClient(context)
+            .connectedNodes
+            .addOnSuccessListener { nodes ->
+
+                for (node in nodes) {
+
+                    Wearable.getMessageClient(context)
+                        .sendMessage(
+                            node.id,
+                            "/low_battery",
+                            battery.toString().toByteArray()
+                        )
+                }
+            }
+    }
+
 }

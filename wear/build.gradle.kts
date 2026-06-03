@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.foundation.layout)
 
     debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.1")
 
    /* implementation("androidx.activity:activity-compose:...")
     implementation("androidx.compose.ui:ui:...")

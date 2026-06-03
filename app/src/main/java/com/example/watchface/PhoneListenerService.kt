@@ -38,7 +38,7 @@ class PhoneListenerService : WearableListenerService() {
                 battery
             )
         }*/
-        val battery =
+        /*val battery =
             String(messageEvent.data)
 
         Prefs.saveBattery(
@@ -46,7 +46,22 @@ class PhoneListenerService : WearableListenerService() {
             battery
         )
 
-        showNotification(battery)
+        showNotification(battery)*/
+        when (messageEvent.path) {
+
+            "/low_battery" -> {
+
+                val battery =
+                    String(messageEvent.data)
+
+                Prefs.saveBattery(
+                    this,
+                    battery
+                )
+
+                showNotification(battery)
+            }
+        }
     }
 
     private fun showNotification(battery: String) {
